@@ -1,0 +1,52 @@
+/* Screen with scrolling content in bg */
+
+/* Animation property */
+.screen {
+  animation: scroll 5s infinite cubic-bezier(.52,-0.39,.3,1.43);
+}
+
+/* Keyframes */
+@keyframes scroll {
+  0%, 10% {
+    background-position: 0 0;
+  }
+  20%, 30% {
+    background-position: 0 -22em;
+  }
+  50%, 60% {
+    background-position: 0 -44em;
+  }
+  90%, 100% {
+    background-position: 0 0;
+  }
+}
+
+/* Generat styling */
+body {
+  background: #36a1d9;
+}
+
+.screen {
+  border-radius: 1em;
+  background: #ffbd30 url(../images/screen_bg.png) no-repeat top center;
+  background-size: 100% auto;
+  width: 40em;
+  height: 30em;
+  position: absolute;
+  top: calc(50% - 15em);
+  left: calc(50% - 20em);
+  overflow: hidden;
+}
+
+.screen::after {
+  /* Decorative bezel */
+  content: "";
+  border-radius: 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 2em solid #fff;
+}
+
